@@ -1,0 +1,85 @@
+body {
+  background: #FFDD95;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container h1 {
+  color: #7D0A0A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.show-num {
+  margin-top: 5em;
+}
+
+.input-boxes input {
+  height: 1em;
+  width: 1em;
+  background: transparent;
+  border: 2px solid #7D0A0A;
+  border-radius: 5px;
+  color: #7D0A0A;
+  font-size: 2em;
+  padding: 0.5em;
+  padding-left: 1em;
+}
+
+.input-boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2em;
+  margin-top: 7em;
+}
+
+.new-game, .check-btn, .submit-btn {
+  margin-top: 2em;
+  background: #7D0A0A;
+  color: #FFDD95;
+  height: 3em;
+  border-radius: 10px;
+  border: none;
+  width: 5em;
+  cursor: pointer;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.5em;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.questions {
+  margin-top: 2em;
+  font-size: 2em;
+  color: #7D0A0A;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.questions input {
+  width: 100%;
+  height: 5em;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .input-boxes input {
+    height: 0.5em;
+    width: 0.1em;
+    font-size: 1.5em;
+  }
+  
+}
