@@ -22,6 +22,29 @@ function Home() {
     }
     return numberArray.join(''); // Convert array back to string
   }
+  function distinctNumber(show, guess) {
+    let guessArray = guess.split('');
+    let showArray = show.split('');
+    let different = 0;
+    let index = 0;
+    for (let i = 0; i < guessArray.length; i++) {
+      if (guess[i] !== show[i]) {
+        return guess[i];
+      }
+    }
+  }
+
+  function distinctIndex(show, guess) {
+    let guessArray = guess.split('');
+    let showArray = show.split('');
+    let different = 0;
+    let index = 0;
+    for (let i = 0; i < guessArray.length; i++) {
+      if (guess[i] !== show[i]) {
+        return i + 1;
+      }
+    }
+  }
 
   function ask() {
     let question = document.querySelector('.questions input').value;
@@ -29,7 +52,7 @@ function Home() {
     if (question === '') {
       toast.error('Please enter a question!');
     } else {
-      fetch(`http://localhost:3001/ask/${numberToGuess}/${numberToShow}`, {
+      fetch(`http://localhost:3001/ask/${numberToGuess}/${numberToShow}/${differentNum}/${diffIndex}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,6 +85,8 @@ function Home() {
 
   const [numberToShow, setNumberToShow] = useState(generateRandomNumber());
   const [numberToGuess, setNumberToGuess] = useState(changeRandomIndex(1, numberToShow));
+  const differentNum = distinctNumber(numberToShow, numberToGuess) ;
+  const diffIndex = distinctIndex(numberToShow, numberToGuess);
   const [userInput, setUserInput] = useState(['', '', '', '', '', '', '']);
   const [confetti, setConfetti] = useState(false);
   const inputRefs = useRef([]);

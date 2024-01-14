@@ -14,11 +14,13 @@ app.use(express.json());
 
 const apiKey = process.env.OPENAI_API_KEY;
 
-app.post('/ask/:guess/:show', async (req, res) => {
+app.post('/ask/:guess/:show/:diff/:index', async (req, res) => {
     const { guess } = req.params;
     const { show } = req.params;
+    const { diff } = req.params;
+    const { index } = req.params;
     const { question } = req.body;
-    const prompt = `Only answer yes or no. If the question cannot be answered as yes or no then answer "not a yes or no question" The user is given this number ${show} and is told that one character is off. The user has to guess the correct 7-letter number ${guess} where only one letter is different. The different character refers to the only letter that is different between the two numbers provided.
+    const prompt = `Only answer yes or no. If the question cannot be answered as yes or no then answer "not a yes or no question" The user is given this number ${show} and is told that one character is off. The user has to guess the correct 7-letter number ${guess} where only one letter is different. The different number is ${diff} and is located at ${index} [position] where the first digit is at position 1.
 
     Q: ${question}
     A:`;
