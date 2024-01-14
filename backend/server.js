@@ -20,7 +20,7 @@ app.post('/ask/:guess/:show/:diff/:index', async (req, res) => {
     const { diff } = req.params;
     const { index } = req.params;
     const { question } = req.body;
-    const prompt = `Only answer yes or no. If the question cannot be answered as yes or no then answer "not a yes or no question" Here are two numbers: ${show}, ${guess} The different number is ${diff} and is located at ${index} [position] where the first digit is at position 1.
+    const prompt = `Only answer yes or no. If the question cannot be answered as yes or no then answer "not a yes or no question" Here are two numbers: ${show}, ${guess} The different number is ${diff} and is located at ${index} [position] where the first digit is at position 1. If asked whether the position of the different number is less than a particular number, then compare ${index} with that number. If ${index} is less only then answer yes, otherwise no. Do the same for if asked the position is more than check if ${index} is more.
 
     Q: ${question}
     A:`;
