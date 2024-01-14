@@ -20,7 +20,7 @@ app.post('/ask/:guess/:show/:diff/:index', async (req, res) => {
     const { diff } = req.params;
     const { index } = req.params;
     const { question } = req.body;
-    const prompt = `Only answer yes or no. If the question cannot be answered as yes or no then answer "not a yes or no question" The user is given this number ${show} and is told that one character is off. The user has to guess the correct 7-letter number ${guess} where only one letter is different. The different number is ${diff} and is located at ${index} [position] where the first digit is at position 1.
+    const prompt = `Only answer yes or no. If the question cannot be answered as yes or no then answer "not a yes or no question" Here are two numbers: ${show}, ${guess} The different number is ${diff} and is located at ${index} [position] where the first digit is at position 1.
 
     Q: ${question}
     A:`;
