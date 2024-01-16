@@ -20,12 +20,12 @@ app.post('/ask/:guess/:show/:diff/:index', async (req, res) => {
     const { diff } = req.params;
     const { index } = req.params;
     const { question } = req.body;
-    const prompt = `Only answer yes or no. If the question cannot be answered as yes or no then answer "not a yes or no question" Here are two numbers: ${show}, ${guess} The different number is ${diff} and is located at ${index} [position] where the first digit is at position 1. If asked whether the position of the different number is less than a particular number, then compare ${index} with that number. If ${index} is less only then answer yes, otherwise no. Do the same for if asked the position is more than check if ${index} is more. If asked whether the different number is greater or less than or equal to a particular number, answer by comparing ${diff} which is the different number with the particular number given. If asked is the nth number changed check if n equals ${index}. The user might user different and changed interchangeably. If asked anything about number, the number refers to ${diff} and its position is ${index}.
+    const prompt = `Only answer yes or no. If the question cannot be answered as yes or no then answer "not a yes or no question" Here are two numbers: ${show}, ${guess} The different number is ${diff} and is located at ${index} [position] where the first digit is at position 1. The user is shown ${show} and has to guess ${guess}. The user will ask questions about the guess which is ${guess}. If asked whether the position of the different number is less than a particular number, then compare ${index} with that number. If ${index} is less only then answer yes, otherwise no. Do the same for if asked the position is more than check if ${index} is more. If asked whether the different number is greater or less than or equal to a particular number, answer by comparing ${diff} which is the different number with the particular number given. If asked is the nth number changed check if n equals ${index}. The user might user different and changed interchangeably. If asked anything about number, the number refers to ${diff} and its position is ${index}.
 
     Q: ${question}
     A:`;
     const requestData = {
-        model: 'gpt-3.5-turbo-1106',
+        model: 'gpt-4',
         messages: [
             { role: 'system', content: prompt },
             { role: 'user', content: prompt },
